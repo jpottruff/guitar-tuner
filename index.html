@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+  <title>Guitar Tuner</title>
+  <meta charset="utf-8" />
+
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+</head>
+<body>
+
+
+    <header>
+      <ul>
+        <li><span class="selected">Guitar</span></li>
+        <li><span class="comingsoon">Bass</span></li>
+        <li><span class="comingsoon">Ukulele</span></li>
+        <li><span class="comingsoon">Mandolin</span></li>
+        <li><span class="comingsoon">Banjo</span></li>
+      </ul>
+    </header>
+
+
+
+    <div class="notes">
+
+      <!--note: to see where key values come from, see http://keycode.info/ -->
+
+      <div data-key="54" class="note">
+        <kbd>E</kbd>
+        <span class="sound">(Press 6)</span>
+      </div>
+
+      <div data-key="53" class="note">
+        <kbd>A</kbd>
+        <span class="sound">(Press 5)</span>
+      </div>
+
+      <div data-key="52" class="note">
+        <kbd>D</kbd>
+        <span class="sound">(Press 4)</span>
+      </div>
+
+      <div data-key="51" class="note">
+        <kbd>G</kbd>
+        <span class="sound">(Press 3)</span>
+      </div>
+
+      <div data-key="50" class="note">
+        <kbd>B</kbd>
+        <span class="sound">(Press 2)</span>
+      </div>
+
+      <div data-key="49" class="note">
+        <kbd>e</kbd>
+        <span class="sound">(Press 1)</span>
+      </div>
+
+    </div>
+    <div class="instrument">
+
+    </div>
+
+
+
+    <!-- Guitar Audio  -->
+    <audio data-key="54" src="sounds/guitar/E-6.mp3"></audio>
+    <audio data-key="53" src="sounds/guitar/A-5.mp3"></audio>
+    <audio data-key="52" src="sounds/guitar/D-4.mp3"></audio>
+    <audio data-key="51" src="sounds/guitar/G-3.mp3"></audio>
+    <audio data-key="50" src="sounds/guitar/B-2.mp3"></audio>
+    <audio data-key="49" src="sounds/guitar/e-1.mp3"></audio>
+
+
+
+  <script>
+
+    function playSound(e) {
+      // console.log(e);
+
+      //defining the audio that needs to be played and
+      //selecting the .note so it can be animated
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const note = document.querySelector(`.note[data-key="${e.keyCode}"]`);
+
+      //end the function if the key pressed is not one of the valid keys (ie. does not create audio)
+      if (!audio) return;
+
+
+      //plays audio
+      //note: currentTime = 0 allows the button to be pressed and trigger the sound again without waiting for it to finish
+      audio.currentTime = 0;
+      audio.play();
+      note.classList.add('playing');
+
+
+    }
+
+    function removeTransition(e) {
+      if (e.propertyName !== 'transform') return;
+
+      this.classList.remove('playing');
+    }
+
+    const notes = document.querySelectorAll('.note');
+    notes.forEach(note => note.addEventListener('transitionend', removeTransition));
+
+    window.addEventListener('keydown', playSound);
+
+
+  </script>
+</body>
+
+</html>
