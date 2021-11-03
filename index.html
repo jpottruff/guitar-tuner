@@ -1,68 +1,64 @@
 <!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guitar Tuner</title>
-    <meta charset="utf-8" />
-
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <script src="js/scripts.js"></script>
-
   </head>
-  <body>
-      <header>
-        <h1>Guitar Tuner</h1>
-      </header>
 
+  <body class="background-images">
+    <header>
+      <h1>Guitar Tuner</h1>
+    </header>
+    <main>
       <!-- NOTE: key values can be found at http://keycode.info/ -->
-
-      <div class="notes">
-
+      <div class="note-container">
         <!-- E -->
         <div data-key="54" class="note">
           <kbd>E</kbd>
           <span class="hint">(Press 6)</span>
         </div>
-        
+
         <!-- A -->
         <div data-key="53" class="note">
           <kbd>A</kbd>
           <span class="hint">(Press 5)</span>
         </div>
-        
+
         <!-- D -->
         <div data-key="52" class="note">
           <kbd>D</kbd>
           <span class="hint">(Press 4)</span>
         </div>
-        
+
         <!-- G -->
         <div data-key="51" class="note">
           <kbd>G</kbd>
           <span class="hint">(Press 3)</span>
         </div>
-        
+
         <!-- B -->
         <div data-key="50" class="note">
           <kbd>B</kbd>
           <span class="hint">(Press 2)</span>
         </div>
-        
+
         <!-- E -->
         <div data-key="49" class="note">
           <kbd>e</kbd>
           <span class="hint">(Press 1)</span>
         </div>
       </div>
+    </main>
 
-      <!-- Guitar Audio  -->
-      <audio data-key="54" src="assets/sounds/guitar/E-6.mp3"></audio>
-      <audio data-key="53" src="assets/sounds/guitar/A-5.mp3"></audio>
-      <audio data-key="52" src="assets/sounds/guitar/D-4.mp3"></audio>
-      <audio data-key="51" src="assets/sounds/guitar/G-3.mp3"></audio>
-      <audio data-key="50" src="assets/sounds/guitar/B-2.mp3"></audio>
-      <audio data-key="49" src="assets/sounds/guitar/e-1.mp3"></audio>
+    <!-- Guitar Audio  -->
+    <audio data-key="54" src="assets/sounds/guitar/E-6.mp3"></audio>
+    <audio data-key="53" src="assets/sounds/guitar/A-5.mp3"></audio>
+    <audio data-key="52" src="assets/sounds/guitar/D-4.mp3"></audio>
+    <audio data-key="51" src="assets/sounds/guitar/G-3.mp3"></audio>
+    <audio data-key="50" src="assets/sounds/guitar/B-2.mp3"></audio>
+    <audio data-key="49" src="assets/sounds/guitar/e-1.mp3"></audio>
   </body>
-
 </html>
